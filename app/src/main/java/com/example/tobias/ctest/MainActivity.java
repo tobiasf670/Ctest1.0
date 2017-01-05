@@ -269,6 +269,7 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
 
                 setTextViewRotate(tidLaese,svaerhedsgrad,textView,textView2);
                 break;
+
             case R.id.random:
                 ImageView img_random = (ImageView) findViewById(R.id.random);
 
