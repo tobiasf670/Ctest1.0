@@ -394,7 +394,7 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
 
         tidLaese.setText("Hvor lang tid vil du læse? (I minutter)");
 
-        svaerhedsgrad.setText("Hvilken særhedsgrad skal teksten have?");
+        svaerhedsgrad.setText("Hvilken sværhedsgrad skal teksten have?");
 
         selectedTextView.setText("Du har valgt : "+((CircleImageView) v).getName());
 
