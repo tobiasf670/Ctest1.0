@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
     //TextView seekBarDifficultyValue;
     private SeekBar seekBar,seekBar2;
     private TextView textView,textView2,tidLaese,svaerhedsgrad;
+    private Button las;
 
 
 
@@ -44,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        las = (Button) findViewById(R.id.btnStart);
+        las.setVisibility(GONE);
 
         seekBar = (SeekBar) findViewById(R.id.seekBar1);
         seekBar.setVisibility(GONE);
@@ -158,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
                 seekBar2.setVisibility(VISIBLE);
                 rotateSeekBar(seekBar2);
 
+                las.setVisibility(VISIBLE);
                // selectedTextView.setText("");
 
 
@@ -245,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
         xDest -= (view.getMeasuredWidth()/2);
         int yDest = dm.heightPixels/2 - (view.getMeasuredHeight()/2) - statusBarOffset;
 
-        TranslateAnimation anim = new TranslateAnimation( 0, xDest - originalPos[0] , 0, (yDest - originalPos[1])/2 );
+        TranslateAnimation anim = new TranslateAnimation( 0, xDest - originalPos[0] , 0, (yDest - originalPos[1])-((yDest - originalPos[1])/4) );
         anim.setDuration(1000);
         anim.setFillAfter( true );
         int x = xDest - originalPos[0];
