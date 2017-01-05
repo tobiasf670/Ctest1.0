@@ -10,6 +10,14 @@
 
     android:id="@+id/rootLayout" >
 
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnStart"
+        android:layout_alignBottom="@+id/circle_layout"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:id="@+id/selected_textView"
         android:layout_width="match_parent"
@@ -40,17 +48,9 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/seekBar1"
         android:layout_marginLeft="29dp"
-        android:layout_marginTop="14dp" />
-
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         android:layout_marginTop="14dp"
-        android:layout_below="@+id/seekBar2"
-        android:layout_marginLeft="29dp"
          />
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -90,12 +90,13 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="48dp" />
 
-    <Button
-        android:text="LÆS"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnStart"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignBottom="@+id/seekBar2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView2" />
+
 
 </RelativeLayout>
