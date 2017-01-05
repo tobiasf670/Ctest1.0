@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -30,12 +31,12 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
     protected CircleLayout circleLayout;
     protected TextView selectedTextView;
 
-    private SeekBar seekBarTime;
-    TextView seekBarTimeValue;
-    SeekBar seekBarDifficulty;
-    TextView seekBarDifficultyValue;
+    //private SeekBar seekBarTime;
+    //TextView seekBarTimeValue;
+    //SeekBar seekBarDifficulty;
+    //TextView seekBarDifficultyValue;
     private SeekBar seekBar,seekBar2;
-    private TextView textView,textView2;
+    private TextView textView,textView2,tidLaese,svaerhedsgrad;
 
 
 
@@ -53,6 +54,10 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
         seekBar2.setVisibility(GONE);
 
         textView2 = (TextView) findViewById(R.id.textView2);
+
+        tidLaese = (TextView) findViewById(R.id.TidLaese) ;
+
+        svaerhedsgrad = (TextView) findViewById(R.id.TextSvaerhedsgrad);
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 0;
@@ -140,7 +145,11 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
                 }
 
                ImageView img = (ImageView) findViewById(R.id.historie);
+                circleLayout.setEnabled(false);
                moveViewToScreenCenter(img);
+                selectedTextView.setText("Du har valgt : "+((CircleImageView) view).getName());
+                moveViewToScreenCenter(selectedTextView);
+                setTxtAndRotate(tidLaese,svaerhedsgrad);
                 circleLayout.setRotating(false);
 
                 seekBar.setVisibility(VISIBLE);
@@ -149,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
                 seekBar2.setVisibility(VISIBLE);
                 rotateSeekBar(seekBar2);
 
-                selectedTextView.setText("");
+               // selectedTextView.setText("");
 
 
 
@@ -218,6 +227,11 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
 
     private void moveViewToScreenCenter( View view )
     {
+        if(view instanceof TextView){
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)view.getLayoutParams();
+            params.setMargins(0, 0, 0, 0); //substitute parameters for left, top, right, bottom
+            view.setLayoutParams(params);
+        }
 
         RelativeLayout root = (RelativeLayout) findViewById( R.id.rootLayout);
         DisplayMetrics dm = new DisplayMetrics();
@@ -236,7 +250,6 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
         anim.setFillAfter( true );
         int x = xDest - originalPos[0];
         int y = yDest - (originalPos[1])/2;
-        Log.i("ja","x"+x+"y"+y);
         view.startAnimation(anim);
     }
 
@@ -252,6 +265,16 @@ public class MainActivity extends AppCompatActivity implements CircleLayout.OnIt
         Animation animation = new RotateAnimation(200, 360, t.getWidth() , t.getHeight() );
         animation.setDuration(1250);
         t.startAnimation(animation);
+    }
+
+    private  void setTxtAndRotate( TextView t, TextView t1){
+        tidLaese.setText("Hvor lang tid vil du læse? (I minutter)");
+        svaerhedsgrad.setText("Hvilken særhedsgrad skal teksten have?");
+        t.setDrawingCacheEnabled(true);
+        Animation animation = new RotateAnimation(200, 360, t.getWidth() , t.getHeight() );
+        animation.setDuration(1250);
+        t.startAnimation(animation);
+        t1.startAnimation(animation);
     }
 
 }

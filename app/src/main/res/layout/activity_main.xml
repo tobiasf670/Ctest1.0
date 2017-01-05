@@ -10,16 +10,6 @@
 
     android:id="@+id/rootLayout" >
 
-    <com.szugyi.circlemenu.view.CircleLayout
-        android:id="@+id/circle_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/selected_textView"
-        android:layout_gravity="center_horizontal" >
-
-        <include layout="@layout/menu_items" />
-    </com.szugyi.circlemenu.view.CircleLayout>
-
     <TextView
         android:id="@+id/selected_textView"
         android:layout_width="match_parent"
@@ -62,13 +52,42 @@
         android:layout_marginLeft="29dp"
          />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/seekBar1"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/TidLaese" />
+
+
     <SeekBar
         android:id="@+id/seekBar2"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:max="10"
-        android:layout_above="@+id/selected_textView"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="25dp" />
+
+    <com.szugyi.circlemenu.view.CircleLayout
+        android:id="@+id/circle_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <include layout="@layout/menu_items" />
+    </com.szugyi.circlemenu.view.CircleLayout>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/seekBar2"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/TextSvaerhedsgrad" />
 
 </RelativeLayout>
