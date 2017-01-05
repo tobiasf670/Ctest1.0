@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/seekBar1"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
         android:id="@+id/TidLaese" />
 
 
@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/seekBar2"
-        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
         android:id="@+id/TextSvaerhedsgrad" />
 
     <com.szugyi.circlemenu.view.CircleLayout
@@ -78,21 +78,6 @@
         <include layout="@layout/menu_items" />
     </com.szugyi.circlemenu.view.CircleLayout>
 
-    <SeekBar
-        android:id="@+id/seekBar2"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_above="@+id/selected_textView"
-        android:layout_marginBottom="48dp"
-        android:max="3"
-        android:progress="1"
-        android:thumbTint="@color/colorPrimaryDark"
-        android:progressTint="@color/colorPrimaryDark"
-        android:indeterminate="false"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
-
-
 
     <TextView
         style="@style/defaultText"
@@ -100,16 +85,31 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/seekBar1"
         android:id="@+id/textView1"
-        android:layout_marginLeft="29dp"/>
+        android:layout_marginLeft="29dp"
+        android:layout_marginBottom="15dp"/>
 
     <TextView
         style="@style/defaultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/seekBar2"
+        android:id="@+id/textView2"
+        android:layout_marginLeft="29dp"
+
+        />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:max="3"
+        android:progress="1"
+        android:thumbTint="@color/colorPrimaryDark"
+        android:progressTint="@color/colorPrimaryDark"
+        android:indeterminate="false"
+        android:layout_above="@+id/selected_textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/textView2"
-        android:layout_marginLeft="29dp"/>
+        android:layout_marginBottom="72dp" />
 
 </RelativeLayout>
